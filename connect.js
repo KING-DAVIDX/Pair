@@ -4,7 +4,7 @@ const path = require('path');
 const config = require('./config');
 
 const supabase = createClient(config.SUPABASE_URL, config.SUPABASE_KEY);
-const bucketName = 'sessions';
+const bucketName = 'session';
 
 async function saveSession(id) {
   if (!id.startsWith(config.PREFIX)) {
