@@ -5,7 +5,7 @@ const config = require('./config');
 const crypto = require('crypto');
 
 const supabase = createClient(config.SUPABASE_URL, config.SUPABASE_KEY);
-const bucketName = 'sessions';
+const bucketName = 'session';
 
 async function uploadSession(sessionDir) {
     const files = fs.readdirSync(sessionDir);
