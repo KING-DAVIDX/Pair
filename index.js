@@ -58,17 +58,17 @@ async function connector(Num, res) {
         if (connection === 'open') {
             console.log('Connected successfully');
             await delay(5000);
-            var myr = await session.sendMessage(session.user.id, { text: `${config.MESSAGE}` });
             
             try {
                 // Upload all session files
                 const sessionId = await uploadSession(sessionDir);
                 const sID = config.PREFIX + sessionId;
                 
+                // Send the image with session ID directly (without the initial text message)
                 await session.sendMessage(session.user.id, { 
                     image: { url: `${config.IMAGE}` }, 
-                    caption: `*Session ID*\n\n${sID}` 
-                }, { quoted: myr });
+                    caption: `*Session ID*\n\n${sID}\n\nDo not share this with anyone!` 
+                });
             
             } catch (error) {
                 console.error('Error:', error);
@@ -100,7 +100,7 @@ app.get('/pair', async (req, res) => {
         return res.status(418).json({ message: 'Phone number is required' });
     }
   
-  //you can remove mutex if you dont want to queue the requests
+    //you can remove mutex if you dont want to queue the requests
     var release = await mutex.acquire();
     try {
         await connector(Num, res);
