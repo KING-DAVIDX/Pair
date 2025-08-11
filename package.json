@@ -17,8 +17,8 @@
   "author": "KING-DAVIDX",
   "license": "MIT",
   "dependencies": {
-    "@supabase/supabase-js": "^2.39.0",
-    "baileys": "git+https://github.com/WhiskeySockets/Baileys.git",
+    "@supabase/supabase-js": "^2.51.0",
+    "baileys": "6.7.17",
     "async-mutex": "^0.5.0",
     "express": "^4.21.1",
     "node-cache": "^5.1.2",
